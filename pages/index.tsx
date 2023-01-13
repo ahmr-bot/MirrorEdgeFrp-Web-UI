@@ -14,8 +14,7 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
-import Copyright from '../src/Copyright';
-import current from '../src/http'
+import Copyright from '../components/Copyright';
 const tiers = [
   {
     title: 'Pro',
@@ -37,7 +36,6 @@ const tiers = [
 
 
 export default function Home() {
-  current
   return (
      <React.Fragment>
       <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
@@ -107,7 +105,7 @@ export default function Home() {
         }}
       >
             <Box maxWidth="sm">
-          <Button variant="contained" href="https://panel.mefrp.com/login">
+          <Button variant="contained" href="auth/login">
             开始免费使用
           </Button>
         </Box>
