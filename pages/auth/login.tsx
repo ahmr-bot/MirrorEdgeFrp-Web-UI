@@ -1,14 +1,12 @@
-import * as React from 'react';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import ProTip from '../../components/ProTip';
-import Copyright from '../../components/Copyright';
-import api from '../../src/config/config'
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
-import { Alert } from '@mui/material';
+import { useEffect } from "react";
+import Copyright from '../../components/Copyright';
+import ProTip from '../../components/ProTip';
+import api from '../../src/config/config';
 export default function About() {
   function Login() {
     // protocol + domain + pathname

@@ -1,6 +1,6 @@
-import { Snackbar, Alert } from "@mui/material";
-import ReactDOM from 'react-dom';
+import { Alert, Snackbar } from "@mui/material";
 import React from "react";
+import ReactDOM from 'react-dom';
 function Message(props) {
     const { content, duration, type }:any = {...props};
     // 开关控制：默认true,调用时会直接打开
