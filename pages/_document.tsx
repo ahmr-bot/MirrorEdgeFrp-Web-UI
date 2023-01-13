@@ -3,6 +3,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';
 import theme, { roboto } from '../src/theme';
 import createEmotionCache from '../src/createEmotionCache';
+import { SnackbarProvider } from 'notistack';
 
 export default class MyDocument extends Document {
   render() {
@@ -17,7 +18,9 @@ export default class MyDocument extends Document {
           {(this.props as any).emotionStyleTags}
         </Head>
         <body>
+          <SnackbarProvider>
           <Main />
+          </SnackbarProvider>
           <NextScript />
         </body>
       </Html>

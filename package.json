@@ -17,6 +17,7 @@
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "@next/font": "latest",
+    "axios": "^1.2.2",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"

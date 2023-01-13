@@ -8,8 +8,10 @@ import Copyright from '../../components/Copyright';
 import api from '../../src/config/config'
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-
+import { useSnackbar } from 'notistack';
+import { Alert } from '@mui/material';
 export default function About() {
+const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   function Login() {
     // protocol + domain + pathname
     const redirect = location.origin + location.pathname
@@ -23,9 +25,13 @@ if (query.token != null) {
 const token = query.token as string
 localStorage.setItem('token',token);
 }
+
 // 处理回调数据
   useEffect(() => {
-  console.log(localStorage.getItem('token'));
+  if(localStorage.getItem('token') != null) {
+    console.log("已经登录了哦，重定向")
+  } else {
+  }
   })
 
   return (
