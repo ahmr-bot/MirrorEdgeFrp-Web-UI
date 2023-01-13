@@ -8,10 +8,8 @@ import Copyright from '../../components/Copyright';
 import api from '../../src/config/config'
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import { useSnackbar } from 'notistack';
 import { Alert } from '@mui/material';
 export default function About() {
-const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   function Login() {
     // protocol + domain + pathname
     const redirect = location.origin + location.pathname
