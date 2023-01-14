@@ -70,7 +70,7 @@ export default function Home() {
             <Link
               variant="button"
               color="text.primary"
-              href="https://panel.mefrp.com/login"
+              href="https://dash.laecloud.com"
               sx={{ my: 1, mx: 1.5 }}
             >
               控制面板
@@ -114,7 +114,7 @@ export default function Home() {
         }}
       >
             <Box maxWidth="sm">
-          <Button variant="contained" href="auth/login">
+          <Button variant="contained" href="https://dash.laecloud.com">
             开始免费使用
           </Button>
         </Box>
