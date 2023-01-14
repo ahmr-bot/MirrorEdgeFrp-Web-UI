@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import Copyright from '../../components/Copyright';
 import ProTip from '../../components/ProTip';
 import api from '../../src/config/config';
+import http from '../../src/http/http';
 export default function About() {
   function Login() {
     // protocol + domain + pathname
@@ -21,12 +22,14 @@ if (query.token != null) {
 const token = query.token as string
 localStorage.setItem('token',token);
 }
-
+useEffect(() => { 
+  http.get("http://www.lae.test/api/tasks").then((res) => {  })})
 // 处理回调数据
   useEffect(() => {
   if(localStorage.getItem('token') != null) {
     console.log("已经登录了哦，重定向")
   } else {
+    console.log(location.pathname)
   }
   })
 

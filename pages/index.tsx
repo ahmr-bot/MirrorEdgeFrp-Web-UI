@@ -1,4 +1,4 @@
-import * as React from 'react';
+import StarIcon from '@mui/icons-material/StarBorder';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -6,15 +6,17 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
+import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
+import GlobalStyles from '@mui/material/GlobalStyles';
 import Grid from '@mui/material/Grid';
-import StarIcon from '@mui/icons-material/StarBorder';
+import Link from '@mui/material/Link';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Link from '@mui/material/Link';
-import GlobalStyles from '@mui/material/GlobalStyles';
-import Container from '@mui/material/Container';
+import * as React from 'react';
+import { useEffect, useState } from 'react';
 import Copyright from '../components/Copyright';
+import http from '../src/http/http';
 const tiers = [
   {
     title: 'Pro',
@@ -36,6 +38,9 @@ const tiers = [
 
 
 export default function Home() {
+  const task = useState()
+  useEffect(() => { 
+  http.get("http://www.lae.test/api/tasks").then((res) => {  })})
   return (
      <React.Fragment>
       <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
