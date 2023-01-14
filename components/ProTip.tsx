@@ -14,8 +14,7 @@ export default function ProTip() {
   return (
     <Typography sx={{ mt: 6, mb: 3 }} color="text.secondary">
       <LightBulbIcon sx={{ mr: 1, verticalAlign: 'middle' }} />
-      Pro tip: See more <Link href="https://mui.com/getting-started/templates/">templates</Link> on
-      the MUI documentation.
+      你知道吗: <Link href="https://mui.com/getting-started/templates/">莱云 游戏容器</Link>最低仅需 3.95 元啦！
     </Typography>
   );
 }

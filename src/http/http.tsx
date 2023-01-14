@@ -42,7 +42,6 @@ axios.interceptors.response.use(
     if (error.response.data.error) {
       data = error.response.data.error.message;
     }
-    console.log(data)
     if (error.response.status === 429) {
         Message.error({content: "请求次数过多！", duration: 2000})
     } else if (error.response.status === 401) {
