@@ -3,40 +3,41 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { useRouter } from "next/router";
-import { useEffect } from 'react';
 import Copyright from '../../components/Copyright';
 import Message from '../../components/Message';
 import ProTip from '../../components/ProTip';
 import api from '../../src/config/config';
 import http from '../../src/http/http';
 export default function About() {
+// 登录处理 核心代码 如果存在本地 Token 则进行验证 不存在则前往 LaeCloud 进行登录
 function Login() {
     // protocol + domain + pathname
+    if (localStorage.getItem("token") != null) {
+      const token = localStorage.getItem("token");
+      Message.success({content: "您已登录，正在验证登录有效性……", duration: 1000})
+      setTimeout(() => {
+        VerifyToken(token)
+      },1000)
+    } else {
     const redirect = location.origin + location.pathname
     window.location.href =
         api.auth + '/?callback=' + encodeURIComponent(redirect)
+    }
 }
-// 开始登录
-
 const router = useRouter(); 
 const query = router.query
+
+// Token 获取：从 回调 url 中检测 Token 非 null 时将 Token 定义为 token 字段，并传递 Token 进行验证
 if (query.token != null) {
 const token = query.token as string
-// 1.写入
+VerifyToken(token);
 }
-useEffect(() => {
-  if (localStorage.getItem("token") != null) {
-    const token = localStorage.getItem("token");
-    Message.success({content: "您已登录，正在验证登录有效性……", duration: 3000})
-    setTimeout(() => {
-    VerifyToken(token)}, 2000)
-  }
-})
+// 验证代码：需要携带 token 进行验证 ？是否可以先存储 此处直接getitem验证？
 function VerifyToken(token) {
   localStorage.setItem('token', token);
   http('get','/user',null)
   .then(res => {
-    Message.success({content: "登录成功，正在重定向……", duration: 3000})
+    Message.success({content: "登录成功，正在重定向……", duration: 1000})
     setTimeout(() => {
     router.push('/Panel/home')
    }, 1000)
@@ -44,8 +45,10 @@ function VerifyToken(token) {
 })
 .catch(err => {
   localStorage.removeItem('token')
-  Message.error({content: '登录遇到问题', duration: 2000})
+  Message.error({content: '登录遇到问题，密钥可能过期，正在为您重新登录！', duration: 1000})
+  setTimeout(() => {
   Login();
+  },1000)
 })
 }
   return (
