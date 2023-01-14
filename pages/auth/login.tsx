@@ -3,36 +3,41 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import Copyright from '../../components/Copyright';
+import Message from '../../components/Message';
 import ProTip from '../../components/ProTip';
 import api from '../../src/config/config';
 import http from '../../src/http/http';
 export default function About() {
-  function Login() {
+function Login() {
     // protocol + domain + pathname
     const redirect = location.origin + location.pathname
     window.location.href =
         api.auth + '/?callback=' + encodeURIComponent(redirect)
-      }
+}
 // 开始登录
+
 const router = useRouter(); 
 const query = router.query
 if (query.token != null) {
 const token = query.token as string
-localStorage.setItem('token',token);
+VerifyToken(token);
+// 1.监听 url 中的 token 如果存在则前往校验
 }
-useEffect(() => { 
-  http.get("http://www.lae.test/api/tasks").then((res) => {  })})
-// 处理回调数据
-  useEffect(() => {
-  if(localStorage.getItem('token') != null) {
-    console.log("已经登录了哦，重定向")
-  } else {
-    console.log(location.pathname)
-  }
-  })
-
+function VerifyToken(token) {
+  localStorage.setItem('token', token);
+  http('get','/user',null)
+  .then(res => {
+    Message.success({content: "登录成功，正在重定向……", duration: 3000})
+   // setTimeout(() => {
+ // router.push('/Panel/home')
+// }, 1000)
+})
+.catch(err => {
+  localStorage.removeItem('token')
+  Message.error({content: '登录遇到问题', duration: 2000})
+})
+}
   return (
     <Container maxWidth="lg">
       <Box

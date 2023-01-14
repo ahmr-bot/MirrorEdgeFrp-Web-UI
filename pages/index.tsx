@@ -40,7 +40,11 @@ const tiers = [
 export default function Home() {
   const task = useState()
   useEffect(() => { 
-  http.get("http://www.lae.test/api/tasks").then((res) => {  })})
+    http("get","/tasks", null)
+    .then((res) => {console.log("成功")})
+    .catch((error) => {
+      console.log("失败");
+})})
   return (
      <React.Fragment>
       <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
