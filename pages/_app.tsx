@@ -16,12 +16,14 @@ interface MyAppProps extends AppProps {
 
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
-  useEffect(() => {console.log("API endpoint " + api.api)})
+  useEffect(() => {console.log("API endpoint " + api.api)
+})
   return (
     <CacheProvider value={emotionCache}>
       <Head>
       <title>MirrorEdge Frp [ME Frp] 镜缘映射</title>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9935177840178210" crossOrigin="anonymous"></script>
       </Head>
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
