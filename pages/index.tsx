@@ -118,12 +118,6 @@ export default function Home() {
             开始免费使用
           </Button>
         </Box>
-        <br />
-        <br />
-        <br />
-        <Button variant="contained" href="https://dash.laecloud.com/modules/gct">
-            仅需 <strong>3.95 元起!</strong>高性能 物美价廉的 莱云 游戏容器！
-          </Button>
         </Box>
       </Container>
       {/* End hero unit */}
