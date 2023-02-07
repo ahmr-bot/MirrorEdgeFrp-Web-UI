@@ -5,7 +5,6 @@ import Typography from '@mui/material/Typography';
 import { useRouter } from "next/router";
 import Copyright from '../../components/Copyright';
 import Message from '../../components/Message';
-import ProTip from '../../components/ProTip';
 import api from '../../src/config/config';
 import http from '../../src/http/http';
 export default function About() {
@@ -70,7 +69,6 @@ function VerifyToken(token) {
             去登录
           </Button>
         </Box>
-        <ProTip />
         <Copyright />
       </Box>
     </Container>
