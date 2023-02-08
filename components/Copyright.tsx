@@ -14,8 +14,6 @@ export default function Copyright() {
     Frp 内网穿透联盟统一识别编码:AZWB66WB
       </MuiLink>
       <br />
-      <MuiLink color="inherit" href="https://www.aehxy.com/">
-  Aehxy
       {typeof window !== 'undefined' && window.location.host === 'frp.mcserverx.com' ? (
         <MuiLink color="inherit" href="https://beian.miit.gov.cn/">
         蜀ICP备2022026470号-4
